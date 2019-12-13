@@ -1,0 +1,51 @@
+<div [formGroup]="formGroup">
+  <div class="ng-binding rating-question" style="float: left; width: 44%; font-size: 18px; font-weight: 400;">*How long
+    have you been using it?
+  </div>
+  <div class="form-check form-check-radio">
+    <ul style="float: left; padding-left: 20px;">
+      <li style="list-style-type: none; padding-bottom: 10px;">
+        <label class="form-check-label" style="font-size: 15px; color: rgb(0, 0, 0);">
+          <input class="form-check-input" type="radio" value="less than 7 days" formControlName="termOfUse"> Just started (less
+          than 7 days)
+          <span class="circle">
+                      <span class="check"></span>
+                    </span>
+        </label>
+      </li>
+      <li style="list-style-type: none; padding-bottom: 10px;">
+        <label class="form-check-label" style="font-size: 15px; color: rgb(0, 0, 0);">
+          <input class="form-check-input" type="radio" value="for a while" formControlName="termOfUse">
+          I've been using it for a while!
+          <span class="circle">
+                    <span class="check"></span>
+                  </span>
+        </label>
+      </li>
+      <li style="list-style-type: none; padding-bottom: 10px;">
+        <label class="form-check-label" style="font-size: 15px; color: rgb(0, 0, 0);">
+          <input class="form-check-input" type="radio" value="more than 60 days" formControlName="termOfUse"> I have been using it
+          for more than 60 days.
+          <span class="circle">
+                    <span class="check"></span>
+                  </span>
+        </label>
+      </li>
+    </ul>
+  </div>
+</div>
+<div style="clear: both;"></div>
+<div style="padding-top: 20px;">
+  <div class="ng-binding rating-question" style="float: left; width: 43%; font-size: 18px; font-weight: 400;">*How
+    satisfied are you with our product?
+  </div>
+  <div class="rating-widget" style="float: left; padding-left: 20px;">
+    <i class="material-icons ng-binding" *ngFor="let star of starsArray"
+       data-id="{{star}}"
+       [ngClass]="{'selected': starsCount >= star }"
+       (click)="setReview(star)">star_border</i>
+  </div>
+</div>
+<div class="text-center" style="clear: both; color: rgb(244, 67, 54);">
+  <span style="font-weight: bold;"></span>
+</div>

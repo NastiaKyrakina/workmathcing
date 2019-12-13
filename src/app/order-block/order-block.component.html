@@ -1,0 +1,19 @@
+<h5 class="info-text text-center">Please enter your Amazon ORDER ID here.<br>Use the <strong>"FIND ID"</strong> button to get it easily from your Amazon Order History page.</h5>
+<div class="form-group input-group bmd-form-group" [ngClass]="{'is-focused': isInputActive}"  [formGroup]="formGroup">
+  <label class="bmd-label-floating" for="orderId">Your Amazon order ID</label>
+  <input formControlName="orderId"
+         type="text"
+         class="form-control text-center"
+         id="orderId" name="orderId" required="" (focus)="changeLabel()" (blur)="changeLabel()">
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-default btn-sm">
+      <a href="https://www.amazon.com/gp/css/order-history?ie=UTF8&amp;amp;ref_=nav_nav_orders_first"
+         target="_blank">FIND ID</a>
+    </button>
+  </span>
+</div>
+<span class="error-message" *ngIf="formGroup.get('orderId').invalid && formGroup.get('orderId').dirty">
+  ORDER ID EXAMPLE 123-1234567-1234567. Please feel free to contact us if there are any problems. Email address:
+   <span style="font-weight: bold;">service@evagloss.com</span>
+</span>
+

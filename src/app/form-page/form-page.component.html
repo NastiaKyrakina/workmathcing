@@ -1,0 +1,43 @@
+<div class="content-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="ng-view col-md-10 offset-md-1 col-sm-12 col-lg-8 offset-lg-2">
+        <div class="card feedback-card ng-scope">
+          <div class="title-block content-padding text-center">
+            <h1>Claim Your Benefit Now!!!</h1>
+          </div>
+          <ul class="nav nav-pills nav-fill" role="tablist">
+            <li class="nav-item" *ngFor="let tab of tabs; let index = index" (click)="changeTab(index)">
+              <a class="nav-link" [ngClass]="{'active': tab.id === activeTab}" [attr.id]="tab.id">{{index + 1}}. {{tab.title}}</a>
+          </ul>
+          <div class="tab-content" [ngSwitch]="activeTab" [formGroup]="mainForm">
+            <ng-container *ngSwitchCase="tabs[0].id">
+              <app-order-block [formGroup]="mainForm"></app-order-block>
+            </ng-container>
+            <ng-container *ngSwitchCase="tabs[1].id">
+              <app-customer-review-block [formGroup]="mainForm"></app-customer-review-block>
+            </ng-container>
+            <ng-container *ngSwitchCase="tabs[2].id">
+              <app-feedback-block [formGroup]="mainForm"></app-feedback-block>
+            </ng-container>
+          </div>
+          <div class="row actions">
+            <div class="col-6"></div>
+            <div class="col-6 text-right">
+              <button class="btn btn-primary btn-next ng-binding" (click)="nextTab()">
+                <i class="material-icons spin ng-hide">loop</i> Next
+                <div class="ripple-container"></div>
+              </button></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-10 offset-md-1 col-sm-12 col-lg-8 offset-lg-2">
+      <div class="text-center footer">
+        <a href="page_2.html" target="_self">© Next 2019</a>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
